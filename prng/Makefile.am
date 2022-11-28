@@ -1,4 +1,4 @@
-noinst_LTLIBRARIES = libinterflop_prng.la
+lib_LTLIBRARIES = libinterflop_prng.la
  
 libinterflop_prng_la_CFLAGS = -fPIC -static -O3
 if WALL_CFLAGS
