@@ -8,4 +8,4 @@ libinterflop_stdlib_la_SOURCES = \
     interflop_stdlib.h \
     interflop_stdlib.c
 
-include_HEADERS=interflop_stdlib.h
+include_HEADERS=interflop.h interflop_stdlib.h
