@@ -4,6 +4,7 @@ AC_CONFIG_AUX_DIR(autoconf)
 AM_INIT_AUTOMAKE([subdir-objects -Wall -Werror foreign])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PROG_CC
+AC_PROG_CXX
 AM_PROG_AR
 AC_CONFIG_HEADERS([config.h])
 LT_INIT
@@ -21,5 +22,7 @@ fi
 
 AC_CONFIG_FILES([
  Makefile
+ rng/Makefile
+ prng/Makefile
 ])
 AC_OUTPUT

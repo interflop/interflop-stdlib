@@ -1,3 +1,4 @@
+SUBDIRS=rng prng
 lib_LTLIBRARIES = libinterflop_stdlib.la
 libinterflop_stdlib_la_CFLAGS = -fPIC -static -nostdlib -fno-stack-protector
 if WALL_CFLAGS
