@@ -6,6 +6,4 @@ libinterflop_prng_la_CFLAGS += -Wall -Wextra
 endif
 libinterflop_prng_la_SOURCES = \
     xoshiro.cxx \
-    xoshiro.hxx \
-    tinymt64.c \
-    tinymt64.h
+    tinymt64.c 
