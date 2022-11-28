@@ -1,8 +1,8 @@
 SUBDIRS=rng prng
 lib_LTLIBRARIES = libinterflop_stdlib.la
-libinterflop_stdlib_la_CFLAGS = -fPIC -static -nostdlib -fno-stack-protector
+libinterflop_stdlib_la_CFLAGS = -fPIC -fno-stack-protector
 if WALL_CFLAGS
-libinterflop_stdlib_la_CFLAGS += -fPIC -static   -fno-stack-protector
+libinterflop_stdlib_la_CFLAGS += -Wall -Wextra
 endif
 libinterflop_stdlib_la_SOURCES = \
     interflop_stdlib.h \

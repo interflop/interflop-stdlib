@@ -94,10 +94,10 @@ struct interflop_backend_interface_t {
                                int *c, void *context);
 
   void (*interflop_cast_double_to_float)(double a, float *b, void *context);
-  void (*interflop_madd_double)(double a, double b, double c, double *res,
-                                void *context);
   void (*interflop_madd_float)(float a, float b, float c, float *res,
                                void *context);
+  void (*interflop_madd_double)(double a, double b, double c, double *res,
+                                void *context);
 
   void (*interflop_enter_function)(interflop_function_stack_t *stack,
                                    void *context, int nb_args, va_list ap);
