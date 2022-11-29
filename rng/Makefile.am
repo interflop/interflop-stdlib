@@ -1,6 +1,6 @@
 lib_LTLIBRARIES = libinterflop_rng.la
 
-libinterflop_rng_la_CFLAGS = -fPIC -static -O3
+libinterflop_rng_la_CFLAGS = -fPIC -O3 -fno-stack-protector
 if WALL_CFLAGS
 libinterflop_rng_la_CFLAGS += -Wall -Wextra
 endif

@@ -23,6 +23,10 @@
 
 #include <stdarg.h>
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #define Null 0
 
 typedef long unsigned int ISize_t;
@@ -126,5 +130,9 @@ double interflop_ceild(double x);
 
 #define interflop_ceil(x)                                                      \
   _Generic(x, float : interflop_ceilf, double : interflop_ceild)(x)
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif /* __INTERFLOP_STDLIB_H__ */
