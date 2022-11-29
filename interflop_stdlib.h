@@ -30,6 +30,10 @@ extern "C" {
 #define Null 0
 
 typedef long unsigned int ISize_t;
+typedef int IInt32_t;
+typedef unsigned int IUint32_t;
+typedef long int IInt64_t;
+typedef unsigned long int IUInt64_t;
 typedef void File;
 typedef int IBool;
 typedef void Itimeval_t;
