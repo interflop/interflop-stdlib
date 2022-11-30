@@ -166,7 +166,7 @@ float fpow2i(int i) {
   if (exp <= -FLOAT_PMAN_SIZE) {
     /* underflow */
     x.f = 0.0f;
-  } else if (exp >= FLOAT_EXP_MAX) {
+  } else if (exp >= FLOAT_EXP_INF) {
     /* overflow */
     x.i = FLOAT_PLUS_INF;
   } else if (exp <= 0) {
@@ -189,13 +189,13 @@ double pow2i(int i) {
   if (exp <= -DOUBLE_PMAN_SIZE) {
     /* underflow */
     x.d = 0.0;
-  } else if (exp >= DOUBLE_EXP_MAX) {
+  } else if (exp >= DOUBLE_EXP_INF) {
     /* overflow */
     x.i = DOUBLE_PLUS_INF;
   } else if (exp <= 0) {
     /* subnormal result */
     /* -1074 + 1023 = -51 */
-    x.i = 1 << (DOUBLE_PMAN_SIZE - 1 + exp);
+    x.i = 1L << ((long int)DOUBLE_PMAN_SIZE - 1L + exp);
   } else {
     /* normal result */
     x.i = exp << DOUBLE_PMAN_SIZE;
