@@ -8,4 +8,10 @@ libinterflop_stdlib_la_SOURCES = \
     interflop_stdlib.h \
     interflop_stdlib.c
 
-include_HEADERS=interflop.h interflop_stdlib.h
+headersdir = $(includedir)/interflop-stdlib
+headers_HEADERS=interflop.h interflop_stdlib.h
+nobase_headers_HEADERS= \
+    iostream/logger.c \
+    iostream/logger.h \
+    rng/vfc_rng.h \
+    prng/vr_rand.h
