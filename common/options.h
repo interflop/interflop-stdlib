@@ -22,9 +22,9 @@
 
 #include <pthread.h>
 
-#include "float_const.h"
+#include "interflop-stdlib/common/float_const.h"
+#include "interflop-stdlib/iostream/logger.h"
 #include "interflop-stdlib/rng/vfc_rng.h"
-#include "logger.h"
 
 /* A macro to simplify the generation of calls for interflop hook functions */
 /* TYPE      is the data type of the arguments */

@@ -53,6 +53,4 @@ struct Vr_Rand_ {
 
 Vr_Rand vr_rand;
 
-#include "vr_rand_implem.h"
-
 #endif

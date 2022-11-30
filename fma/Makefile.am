@@ -1,4 +1,4 @@
-noinst_LTLIBRARIES = libinterflop_fma.la
+lib_LTLIBRARIES = libinterflop_fma.la
 
 libinterflop_fma_la_CFLAGS = -fPIC -fno-stack-protector
 if WALL_CFLAGS
