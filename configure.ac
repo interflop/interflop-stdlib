@@ -24,5 +24,6 @@ AC_CONFIG_FILES([
  Makefile
  rng/Makefile
  prng/Makefile
+ fma/Makefile
 ])
 AC_OUTPUT

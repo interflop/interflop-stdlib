@@ -1,4 +1,4 @@
-SUBDIRS=rng prng
+SUBDIRS=rng prng fma
 lib_LTLIBRARIES = libinterflop_stdlib.la
 libinterflop_stdlib_la_CFLAGS = -fPIC -fno-stack-protector
 if WALL_CFLAGS
@@ -14,4 +14,12 @@ nobase_headers_HEADERS= \
     iostream/logger.c \
     iostream/logger.h \
     rng/vfc_rng.h \
-    prng/vr_rand.h
+    prng/vr_rand.h \
+    fma/fmaqApprox.h \
+    common/float_const.h \
+    common/float_struct.h \
+    common/float_utils.h \
+    common/generic_builtin.h \
+    common/quadmath-imp.h \
+    common/options.c \
+    common/options.h

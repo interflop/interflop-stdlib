@@ -17,27 +17,35 @@
  *     Verificarlo Contributors                                              *\
  *                                                                           *\
  ****************************************************************************/
-#ifndef __LOGGER_H__
-#define __LOGGER_H__
+#ifndef __GENERIC_BUILTIN_H__
+#define __GENERIC_BUILTIN_H__
 
-#include <stdarg.h>
+#include <stdint.h>
 
-#include "interflop-stdlib/interflop_stdlib.h"
+#include "float_const.h"
 
-/* Display the info message */
-void logger_info(const char *fmt, ...);
-/* Display the warning message */
-void logger_warning(const char *fmt, ...);
-/* Display the error message */
-void logger_error(const char *fmt, ...);
+/* This file group generic builtin functions */
 
-/* Display the info message */
-void vlogger_info(const char *fmt, va_list argp);
-/* Display the warning message */
-void vlogger_warning(const char *fmt, va_list argp);
-/* Display the error message */
-void vlogger_error(const char *fmt, va_list argp);
+/* Returns the first least 1-bit + 1 = position of the first trailing 0-bit */
+#define FFS(X)                                                                 \
+  _Generic(X, uint32_t : __builtin_ffs(X), uint64_t : __builtin_ffsl(X))
 
-void logger_init(File *stream);
+/* Returns the number of leading 0-bits in x,
+   starting at the most significant bit position.
+   If x is 0, the result is undefined. */
+#define CLZ(X)                                                                 \
+  _Generic(X, uint32_t : __builtin_clz(X), uint64_t : __builtin_clzl(X))
 
-#endif /* __LOGGER_H__ */
+/* Variant of CLZ that takes two arguments */
+/* X is used for selecting the type */
+/* Y is the actual argument */
+#define CLZ2(X, Y)                                                             \
+  _Generic(X, uint32_t : __builtin_clz, uint64_t : __builtin_clzl)(Y)
+
+/* Returns the number of trailing 0-bits in x,
+   starting at the most significant bit position.
+   If x is 0, the result is undefined. */
+#define CTZ(X)                                                                 \
+  _Generic(X, uint32_t : __builtin_ctz(X), uint64_t : __builtin_ctzl(X))
+
+#endif /* __GENERIC_BUILTIN_H__ */
