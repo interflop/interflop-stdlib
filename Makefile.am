@@ -22,4 +22,5 @@ nobase_headers_HEADERS= \
     common/generic_builtin.h \
     common/quadmath-imp.h \
     common/options.c \
-    common/options.h
+    common/options.h \
+    hashmap/vfc_hashmap.h 

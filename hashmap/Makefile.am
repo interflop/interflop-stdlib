@@ -1,10 +1,10 @@
-lib_LTLIBRARIES = libvprec_tools.la
+lib_LTLIBRARIES = libinterflop_hashmap.la
 
-libvfc_hashmap_la_CFLAGS = -fPIC -fno-stack-protector
+libinterflop_hashmap_la_CFLAGS = -fPIC -fno-stack-protector
 if WALL_CFLAGS
-libvfc_hashmap_la_CFLAGS += -Wall -Wextra 
+libinterflop_hashmap_la_CFLAGS += -Wall -Wextra 
 endif
-libvfc_hashmap_la_SOURCES = \
+libinterflop_hashmap_la_SOURCES = \
     vfc_hashmap.h \
-    vfc_hashmap.c \
-libvfc_hashmap_la_includedir = $(includedir)/
+    vfc_hashmap.c 
+libinterflop_hashmap_la_includedir = $(includedir)/
