@@ -58,6 +58,9 @@ typedef int (*interflop_strcasecmp_t)(const char *s1, const char *s2);
 /* Do not follow libc API, use error pointer to pass errno result instead */
 /* error = 0 if success */
 typedef long (*interflop_strtol_t)(const char *nptr, char **endptr, int *error);
+typedef double (*interflop_strtod_t)(const char *nptr, char **endptr,
+                                     int *error);
+
 typedef char *(*interflop_getenv_t)(const char *name);
 typedef int (*interflop_fprintf_t)(File *stream, const char *format, ...);
 typedef char (*interflop_strcpy_t)(char *dest, const char *src);
@@ -93,6 +96,7 @@ extern interflop_panic_t interflop_panic;
 extern interflop_strcmp_t interflop_strcmp;
 extern interflop_strcasecmp_t interflop_strcasecmp;
 extern interflop_strtol_t interflop_strtol;
+extern interflop_strtod_t interflop_strtod;
 extern interflop_getenv_t interflop_getenv;
 extern interflop_fprintf_t interflop_fprintf;
 extern interflop_strcpy_t interflop_strcpy;

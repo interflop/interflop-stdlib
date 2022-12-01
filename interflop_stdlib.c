@@ -50,6 +50,7 @@ interflop_panic_t interflop_panic = Null;
 interflop_strcmp_t interflop_strcmp = Null;
 interflop_strcasecmp_t interflop_strcasecmp = Null;
 interflop_strtol_t interflop_strtol = Null;
+interflop_strtod_t interflop_strtod = Null;
 interflop_getenv_t interflop_getenv = Null;
 interflop_fprintf_t interflop_fprintf = Null;
 interflop_strcpy_t interflop_strcpy = Null;
@@ -82,6 +83,7 @@ void interflop_set_handler(const char *name, void *function_ptr) {
   SET_HANDLER(strcmp)
   SET_HANDLER(strcasecmp)
   SET_HANDLER(strtol)
+  SET_HANDLER(strtod)
   SET_HANDLER(getenv)
   SET_HANDLER(fprintf)
   SET_HANDLER(strcpy)
