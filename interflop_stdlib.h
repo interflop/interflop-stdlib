@@ -84,6 +84,9 @@ typedef void (*interflop_debug_print_op_t)(int, const char *,
                                            const double *res);
 typedef int (*interflop_gettimeofday_t)(Itimeval_t *tv, Itimezone_t *tz);
 
+typedef int (*interflop_register_printf_specifier_t)(int __spec, void *__func,
+                                                     void *__arginfo);
+
 extern interflop_malloc_t interflop_malloc;
 extern interflop_fopen_t interflop_fopen;
 extern interflop_panic_t interflop_panic;
@@ -109,6 +112,8 @@ extern interflop_nanHandler_t interflop_nanHandler;
 extern interflop_infHandler_t interflop_infHandler;
 extern interflop_debug_print_op_t interflop_debug_print_op;
 extern interflop_gettimeofday_t interflop_gettimeofday;
+extern interflop_register_printf_specifier_t
+    interflop_register_printf_specifier;
 
 float fpow2i(int i);
 double pow2i(int i);
