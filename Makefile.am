@@ -23,4 +23,5 @@ nobase_headers_HEADERS= \
     common/quadmath-imp.h \
     common/options.c \
     common/options.h \
-    hashmap/vfc_hashmap.h 
+    hashmap/vfc_hashmap.h \
+    hashmap/vfc_hashmap.c
