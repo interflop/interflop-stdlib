@@ -237,3 +237,20 @@ inline __float128 _fast_pow2_binary128(const int exp) {
            : _get_exponent_binary128)(X)
 
 #endif /* __FLOAT_UTILS_H__ */
+
+extern bool _is_representable_binary32(const float x,
+                                       const int virtual_precision);
+extern bool _is_representable_binary64(const double x,
+                                       const int virtual_precision);
+extern bool _is_representable_binary128(const __float128 x,
+                                        const int virtual_precision);
+extern int32_t _get_exponent_binary32(const float f);
+extern int32_t _get_exponent_binary64(const double d);
+extern int32_t _get_exponent_binary128(const __float128 q);
+extern float _fast_pow2_binary32(const int exp);
+/* Returns 2^exp for binary64 */
+/* Fast function that implies no overflow neither underflow */
+extern double _fast_pow2_binary64(const int exp);
+/* Returns 2^exp for binary128 */
+/* Fast function that implies no overflow neither underflow */
+extern __float128 _fast_pow2_binary128(const int exp);
