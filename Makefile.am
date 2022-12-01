@@ -1,4 +1,4 @@
-SUBDIRS=rng prng fma
+SUBDIRS=rng prng fma hashmap
 lib_LTLIBRARIES = libinterflop_stdlib.la
 libinterflop_stdlib_la_CFLAGS = -fPIC -fno-stack-protector -g
 if WALL_CFLAGS

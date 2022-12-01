@@ -25,5 +25,6 @@ AC_CONFIG_FILES([
  rng/Makefile
  prng/Makefile
  fma/Makefile
+ hashmap/Makefile
 ])
 AC_OUTPUT
