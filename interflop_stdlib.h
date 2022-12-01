@@ -60,7 +60,6 @@ typedef int (*interflop_strcasecmp_t)(const char *s1, const char *s2);
 typedef long (*interflop_strtol_t)(const char *nptr, char **endptr, int *error);
 typedef double (*interflop_strtod_t)(const char *nptr, char **endptr,
                                      int *error);
-
 typedef char *(*interflop_getenv_t)(const char *name);
 typedef int (*interflop_fprintf_t)(File *stream, const char *format, ...);
 typedef char (*interflop_strcpy_t)(char *dest, const char *src);
