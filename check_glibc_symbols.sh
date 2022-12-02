@@ -7,7 +7,8 @@ if [ ! -f $LIB ]; then
     exit 1
 fi
 
-nm -u ${LIB} | grep GLIBC >symbols
+# tls is accepted by Valgrind
+nm -u ${LIB} | grep GLIBC | grep -v __tls_get_addr >symbols
 if [[ $? == 0 ]]; then
     echo "Error: ${LIB} contains GLIB symbols"
     cat symbols
