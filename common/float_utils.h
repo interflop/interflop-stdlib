@@ -124,8 +124,8 @@ int fpq(__float128 x) {
 
 /* Return true if the binary32 x is representable on the precision
  * virtual_precision  */
-inline bool _is_representable_binary32(const float x,
-                                       const int virtual_precision) {
+static inline bool _is_representable_binary32(const float x,
+                                              const int virtual_precision) {
   binary32 b32 = {.f32 = x};
   /* We must check if the mantissa is 0 since the behavior of ctz is undefied */
   /* in this case */
