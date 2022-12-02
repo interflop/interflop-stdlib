@@ -1,8 +1,8 @@
 SUBDIRS=rng prng fma hashmap
 lib_LTLIBRARIES = libinterflop_stdlib.la
-libinterflop_stdlib_la_CFLAGS = -fPIC -fno-stack-protector -g
+libinterflop_stdlib_la_CFLAGS = -fPIC -fno-stack-protector
 if WALL_CFLAGS
-libinterflop_stdlib_la_CFLAGS += -Wall -Wextra
+libinterflop_stdlib_la_CFLAGS += -Wall -Wextra -g
 endif
 libinterflop_stdlib_la_SOURCES = \
     interflop_stdlib.h \

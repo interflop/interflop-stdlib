@@ -2,7 +2,7 @@ lib_LTLIBRARIES = libinterflop_rng.la
 
 libinterflop_rng_la_CFLAGS = -fPIC -O3 -fno-stack-protector -I../$(top_srcdir)
 if WALL_CFLAGS
-libinterflop_rng_la_CFLAGS += -Wall -Wextra
+libinterflop_rng_la_CFLAGS += -Wall -Wextra -g
 endif
 libinterflop_rng_la_SOURCES = \
     splitmix64.c \
