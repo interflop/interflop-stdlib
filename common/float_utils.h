@@ -46,7 +46,7 @@
   _Generic(X, float : FLOAT_MASK_ONE, double : DOUBLE_MASK_ONE)
 
 /* Unified fpclassify function for binary32, binary64 and binary128 */
-int fpf(float x) {
+static inline int fpf(float x) {
   binary32 b32 = {.f32 = x};
   int f = -1;
   if (b32.ieee.exponent == FLOAT_EXP_INF && b32.ieee.mantissa == 0) {
@@ -63,7 +63,7 @@ int fpf(float x) {
   return f;
 }
 
-int fpd(double x) {
+static inline int fpd(double x) {
   binary64 b64 = {.f64 = x};
   int f = -1;
   if (b64.ieee.exponent == DOUBLE_EXP_INF && b64.ieee.mantissa == 0) {
@@ -80,7 +80,7 @@ int fpd(double x) {
   return f;
 }
 
-int fpq(__float128 x) {
+static inline int fpq(__float128 x) {
   binary128 b128 = {.f128 = x};
   int f = -1;
   if (b128.ieee128.exponent == QUAD_EXP_INF && b128.ieee128.mantissa == 0) {
