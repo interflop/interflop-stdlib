@@ -139,8 +139,8 @@ inline bool _is_representable_binary32(const float x,
 
 /* Return true if the binary64 x is representable on the precision
  * virtual_precision  */
-inline bool _is_representable_binary64(const double x,
-                                       const int virtual_precision) {
+static inline bool _is_representable_binary64(const double x,
+                                              const int virtual_precision) {
   binary64 b64 = {.f64 = x};
   /* We must check if the mantissa is 0 since the behavior of ctzl is undefied
    */
@@ -155,8 +155,8 @@ inline bool _is_representable_binary64(const double x,
 
 /* Return true if the binary128 x is representable on the precision
  * virtual_precision  */
-inline bool _is_representable_binary128(const __float128 x,
-                                        const int virtual_precision) {
+static inline bool _is_representable_binary128(const __float128 x,
+                                               const int virtual_precision) {
   binary128 b128 = {.f128 = x};
   /* We must check if the mantissa is 0 since the behavior of ctzl is undefied
    */
@@ -185,21 +185,21 @@ inline bool _is_representable_binary128(const __float128 x,
            : _is_representable_binary128)(X, VT)
 
 /* Returns the unbiased exponent of the binary32 f */
-inline int32_t _get_exponent_binary32(const float f) {
+static inline int32_t _get_exponent_binary32(const float f) {
   binary32 x = {.f32 = f};
   /* Substracts the bias */
   return x.ieee.exponent - FLOAT_EXP_COMP;
 }
 
 /* Returns the unbiased exponent of the binary64 d */
-inline int32_t _get_exponent_binary64(const double d) {
+static inline int32_t _get_exponent_binary64(const double d) {
   binary64 x = {.f64 = d};
   /* Substracts the bias */
   return x.ieee.exponent - DOUBLE_EXP_COMP;
 }
 
 /* Returns the unbiased exponent of the binary128 q */
-inline int32_t _get_exponent_binary128(const __float128 q) {
+static inline int32_t _get_exponent_binary128(const __float128 q) {
   binary128 x = {.f128 = q};
   /* Substracts the bias */
   return x.ieee.exponent - QUAD_EXP_COMP;
@@ -207,7 +207,7 @@ inline int32_t _get_exponent_binary128(const __float128 q) {
 
 /* Returns 2^exp for binary32 */
 /* Fast function that implies no overflow neither underflow */
-inline float _fast_pow2_binary32(const int exp) {
+static inline float _fast_pow2_binary32(const int exp) {
   binary32 b32 = {.f32 = 0.0f};
   b32.ieee.exponent = exp + FLOAT_EXP_COMP;
   return b32.f32;
@@ -215,7 +215,7 @@ inline float _fast_pow2_binary32(const int exp) {
 
 /* Returns 2^exp for binary64 */
 /* Fast function that implies no overflow neither underflow */
-inline double _fast_pow2_binary64(const int exp) {
+static inline double _fast_pow2_binary64(const int exp) {
   binary64 b64 = {.f64 = 0.0};
   b64.ieee.exponent = exp + DOUBLE_EXP_COMP;
   return b64.f64;
@@ -223,7 +223,7 @@ inline double _fast_pow2_binary64(const int exp) {
 
 /* Returns 2^exp for binary128 */
 /* Fast function that implies no overflow neither underflow */
-inline __float128 _fast_pow2_binary128(const int exp) {
+static inline __float128 _fast_pow2_binary128(const int exp) {
   binary128 b128 = {.f128 = 0.0Q};
   b128.ieee128.exponent = exp + QUAD_EXP_COMP;
   return b128.f128;
