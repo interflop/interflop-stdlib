@@ -32,3 +32,4 @@ AC_DEFINE_UNQUOTED(INTERFLOP_STDLIB_PATH, "$with_interflop_stdlib_path", [interf
 AC_SUBST(INTERFLOP_STDLIB_PATH, [$with_interflop_stdlib_path])
 ]
 )
+
