@@ -81,6 +81,7 @@ typedef int (*interflop_argp_parse_t)(void *__argp, int __argc, char **__argv,
                                       void *__input);
 typedef void (*interflop_nanHandler_t)(void);
 typedef void (*interflop_infHandler_t)(void);
+typedef void (*interflop_maxHandler_t)(void);
 typedef void (*interflop_debug_print_op_t)(int, const char *,
                                            const double *args,
                                            const double *res);
@@ -113,6 +114,7 @@ extern interflop_calloc_t interflop_calloc;
 extern interflop_argp_parse_t interflop_argp_parse;
 extern interflop_nanHandler_t interflop_nanHandler;
 extern interflop_infHandler_t interflop_infHandler;
+extern interflop_maxHandler_t interflop_maxHandler;
 extern interflop_debug_print_op_t interflop_debug_print_op;
 extern interflop_gettimeofday_t interflop_gettimeofday;
 extern interflop_register_printf_specifier_t
