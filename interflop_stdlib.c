@@ -69,6 +69,7 @@ interflop_argp_parse_t interflop_argp_parse = Null;
 interflop_nanHandler_t interflop_nanHandler = Null;
 interflop_infHandler_t interflop_infHandler = Null;
 interflop_maxHandler_t interflop_maxHandler = Null;
+interflop_cancellationHandler_t interflop_cancellationHandler = Null;
 interflop_debug_print_op_t interflop_debug_print_op = Null;
 interflop_gettimeofday_t interflop_gettimeofday = Null;
 interflop_register_printf_specifier_t interflop_register_printf_specifier =
@@ -103,6 +104,7 @@ void interflop_set_handler(const char *name, void *function_ptr) {
   SET_HANDLER(nanHandler)
   SET_HANDLER(infHandler)
   SET_HANDLER(maxHandler)
+  SET_HANDLER(cancellationHandler)
   SET_HANDLER(debug_print_op)
   SET_HANDLER(gettimeofday)
   SET_HANDLER(register_printf_specifier)
