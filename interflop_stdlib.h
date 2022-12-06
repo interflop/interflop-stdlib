@@ -83,6 +83,8 @@ typedef void (*interflop_nanHandler_t)(void);
 typedef void (*interflop_infHandler_t)(void);
 typedef void (*interflop_maxHandler_t)(void);
 typedef void (*interflop_cancellationHandler_t)(int);
+typedef void (*interflop_denormalHandler_t)(void);
+
 typedef void (*interflop_debug_print_op_t)(int, const char *,
                                            const double *args,
                                            const double *res);
@@ -117,6 +119,7 @@ extern interflop_nanHandler_t interflop_nanHandler;
 extern interflop_infHandler_t interflop_infHandler;
 extern interflop_maxHandler_t interflop_maxHandler;
 extern interflop_cancellationHandler_t interflop_cancellationHandler;
+extern interflop_denormalHandler_t interflop_denormalHandler;
 extern interflop_debug_print_op_t interflop_debug_print_op;
 extern interflop_gettimeofday_t interflop_gettimeofday;
 extern interflop_register_printf_specifier_t
