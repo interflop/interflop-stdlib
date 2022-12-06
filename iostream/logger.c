@@ -163,8 +163,8 @@ void set_logger_logfile() {
   }
 }
 
-void logger_header(File *stream, const char *lvl_name,
-                   const level_color lvl_color, const IBool colored) {
+static void logger_header(File *stream, const char *lvl_name,
+                          const level_color lvl_color, const IBool colored) {
   if (colored) {
     interflop_fprintf(stream, "%s%s%s [%s%s%s]: ", ansi_colors[lvl_color],
                       lvl_name, ansi_colors[reset_color],
@@ -176,7 +176,7 @@ void logger_header(File *stream, const char *lvl_name,
 }
 
 /* Display the info message */
-void logger_info(const char *fmt, ...) {
+static void logger_info(const char *fmt, ...) {
   if (logger_enabled) {
     logger_header(logger_logfile, "Info", info_color, logger_colored);
     va_list ap;
@@ -187,7 +187,7 @@ void logger_info(const char *fmt, ...) {
 }
 
 /* Display the warning message */
-void logger_warning(const char *fmt, ...) {
+static void logger_warning(const char *fmt, ...) {
   if (logger_enabled) {
     logger_header(logger_stderr, "Warning", warning_color, logger_colored);
   }
@@ -198,7 +198,7 @@ void logger_warning(const char *fmt, ...) {
 }
 
 /* Display the error message */
-void logger_error(const char *fmt, ...) {
+static void logger_error(const char *fmt, ...) {
   if (logger_enabled) {
     logger_header(logger_stderr, "Error", error_color, logger_colored);
   }
