@@ -23,6 +23,10 @@
 
 #include "interflop-stdlib/interflop_stdlib.h"
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #define str(X) #X
 #define xstr(X) str(X)
 
@@ -238,3 +242,7 @@ void logger_init(File *stream) {
   logger_colored = is_logger_colored();
   set_logger_logfile();
 }
+
+#if defined(__cplusplus)
+}
+#endif
