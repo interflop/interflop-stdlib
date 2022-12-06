@@ -3,6 +3,10 @@
 
 #include <stdarg.h>
 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 /* interflop backend interface */
 
 /* interflop float compare predicates, follows the same order than
@@ -127,5 +131,9 @@ struct interflop_backend_interface_t {
  * */
 
 struct interflop_backend_interface_t interflop_init(void *context);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif /* __INTERFLOP_H__ */
