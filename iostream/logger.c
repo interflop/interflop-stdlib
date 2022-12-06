@@ -180,7 +180,7 @@ static void logger_header(File *stream, const char *lvl_name,
 }
 
 /* Display the info message */
-static void logger_info(const char *fmt, ...) {
+void logger_info(const char *fmt, ...) {
   if (logger_enabled) {
     logger_header(logger_logfile, "Info", info_color, logger_colored);
     va_list ap;
@@ -191,7 +191,7 @@ static void logger_info(const char *fmt, ...) {
 }
 
 /* Display the warning message */
-static void logger_warning(const char *fmt, ...) {
+void logger_warning(const char *fmt, ...) {
   if (logger_enabled) {
     logger_header(logger_stderr, "Warning", warning_color, logger_colored);
   }
@@ -202,7 +202,7 @@ static void logger_warning(const char *fmt, ...) {
 }
 
 /* Display the error message */
-static void logger_error(const char *fmt, ...) {
+void logger_error(const char *fmt, ...) {
   if (logger_enabled) {
     logger_header(logger_stderr, "Error", error_color, logger_colored);
   }
