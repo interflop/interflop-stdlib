@@ -270,11 +270,20 @@ __float128 fmaqApprox(__float128 x, __float128 y, __float128 z) {
   }
 }
 
-double fmaApprox(double x, double y, double z) {
+double fmadApprox(double x, double y, double z) {
   __float128 x128 = x;
   __float128 y128 = y;
   __float128 z128 = z;
 
   __float128 res = fmaqApprox(x128, y128, z128);
   return (double)res;
+}
+
+float fmafApprox(float x, float y, float z) {
+  __float128 x128 = x;
+  __float128 y128 = y;
+  __float128 z128 = z;
+
+  __float128 res = fmaqApprox(x128, y128, z128);
+  return (float)res;
 }

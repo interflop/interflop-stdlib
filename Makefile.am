@@ -15,7 +15,7 @@ nobase_headers_HEADERS= \
     iostream/logger.h \
     rng/vfc_rng.h \
     prng/vr_rand.h \
-    fma/fmaqApprox.h \
+    fma/interflop_fma.h \
     common/float_const.h \
     common/float_struct.h \
     common/float_utils.h \
