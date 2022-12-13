@@ -44,7 +44,7 @@ inline double vr_fma<double>(const double &a, const double &b,
                              const double &c) {
   double d;
   __m128d ai, bi, ci, di;
-  ai = _mm_load_sd(&a);
+  ai = _mm_load_sd(&a); 
   bi = _mm_load_sd(&b);
   ci = _mm_load_sd(&c);
   di = _mm_fmadd_sd(ai, bi, ci);
