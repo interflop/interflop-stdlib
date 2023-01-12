@@ -20,6 +20,14 @@ if test "x$WALL_CFLAGS" = "xyes"; then
    AC_MSG_NOTICE([-Wall is set])
 fi
 
+# --enable-lto
+AC_ARG_ENABLE(lto, AS_HELP_STRING([--enable-lto],[Enable Link Time Optimizer]), [LTO_CFLAGS="yes"])
+AM_CONDITIONAL([LTO_CFLAGS], [test "x$LTO_CFLAGS" = "xyes"])
+if test "x$LTO_CFLAGS" = "xyes"; then
+   AC_DEFINE([LTO_CFLAGS], [],  ["Enable Link Time Optimizer"])
+   AC_MSG_NOTICE([Link Time Optimizer is set])
+fi
+
 # --enable-intrinsic-fma
 # Taken from configure.ac Verrou
 AC_CACHE_CHECK([intrinsic fma], interflop_cv_intrinsic_fma,

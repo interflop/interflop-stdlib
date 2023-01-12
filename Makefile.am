@@ -1,6 +1,12 @@
 SUBDIRS=rng prng fma hashmap
 lib_LTLIBRARIES = libinterflop_stdlib.la
+
+if LTO_CFLAGS
+libinterflop_stdlib_la_CFLAGS = -flto -O3 -fno-stack-protector
+libinterflop_stdlib_la_LDFLAGS = -flto -O3
+else
 libinterflop_stdlib_la_CFLAGS = -O3 -fno-stack-protector
+endif
 if WALL_CFLAGS
 libinterflop_stdlib_la_CFLAGS += -Wall -Wextra -g
 endif

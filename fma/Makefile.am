@@ -1,8 +1,13 @@
 lib_LTLIBRARIES = libinterflop_fma.la
 
+if LTO_CFLAGS
 libinterflop_fma_la_CXXFLAGS = -flto -O3 -fno-stack-protector -I../$(top_srcdir)
 libinterflop_fma_la_CFLAGS = -flto -O3 -fno-stack-protector -I../$(top_srcdir)
 libinterflop_fma_la_LDFLAGS = -flto -O3
+else
+libinterflop_fma_la_CXXFLAGS = -O3 -fno-stack-protector -I../$(top_srcdir)
+libinterflop_fma_la_CFLAGS = -O3 -fno-stack-protector -I../$(top_srcdir)
+endif
 if HAVE_FMA_INTRINSIC
 libinterflop_fma_la_CXXFLAGS += -DHAVE_FMA_INTRINSIC
 libinterflop_fma_la_CFLAGS += -DHAVE_FMA_INTRINSIC
