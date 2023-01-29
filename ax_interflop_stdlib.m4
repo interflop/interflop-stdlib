@@ -18,11 +18,8 @@ AC_ARG_WITH([interflop-stdlib],
   [with_interflop_stdlib="$withval"],
   [with_interflop_stdlib=yes])
 
-AM_CONDITIONAL([LINK_INTERFLOP_STDLIB], [test "x$with_interflop_stdlib" != "xno"])
-
 if test "x$with_interflop_stdlib" = "xno"; then
-   AC_MSG_NOTICE([--with-interflop-stdlib=no was given. Disabling interflop-stdlib linkage.])
-   with_interflop_stdlib_path=$ac_default_prefix
+   AC_MSG_ERROR([Could not find interflop-stdlib library])
 elif test "x$with_interflop_stdlib" = "xyes"; then
    with_interflop_stdlib_path=$ac_default_prefix
 else
