@@ -2,6 +2,7 @@
 
 import sys
 import re
+import argparse
 
 global_lut = {}
 '''
@@ -40,12 +41,12 @@ def fill_reverse_table(identifier, value):
         reverse_lut[var] = reverse_lut.get(var, []) + [identifier]
 
 
-def build_global_table(config):
+def build_global_table(args):
     '''
     Build the mapping between variables
     and their expression
     '''
-    with open(config, 'r', encoding='utf-8') as fi:
+    with open(args.config_log, 'r', encoding='utf-8') as fi:
         for line in fi:
             if '=' in line:
                 line_spl = line.strip().split('=')
@@ -73,28 +74,44 @@ def recursive_expansion():
             fill_reverse_table(variable, global_lut[variable])
 
 
-def replace(input_filename, output_filename):
+def replace(args):
     '''
     Expand the variable @<var>@ by global_lut[<var>] (i.e. ${var})
     '''
-    with open(input_filename, 'r', encoding='utf-8') as fi:
-        with open(output_filename, 'w', encoding='utf-8') as fo:
+    with open(args.input, 'r', encoding='utf-8') as fi:
+        with open(args.output, 'w', encoding='utf-8') as fo:
             for line in fi:
                 matches = subst_regexp.findall(line)
                 if matches != []:
                     for match in matches:
                         line = line.replace(
-                            f'@{match}@', global_lut[match.lower()])
+                            f'@{match}@', global_lut[match])
                 fo.write(line)
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        'automake-expand', description='Expand automake variables')
+    parser.add_argument('--config-log', required=True,
+                        help='Name of the config.log file')
+    parser.add_argument('--input', required=True,
+                        help='Input filename where to expand')
+    parser.add_argument('--output', required=True, help='Output filename')
+    parser.add_argument('--verbose', action='store_true', help='Verbose mode')
+    args = parser.parse_args()
+    return args
+
+
 def main():
-    config_logfile = sys.argv[1]
-    input_filename = sys.argv[2]
-    output_filename = sys.argv[3]
-    build_global_table(config_logfile)
+    args = parse_args()
+    build_global_table(args)
     recursive_expansion()
-    replace(input_filename, output_filename)
+
+    if args.verbose:
+        for arg, value in global_lut.items():
+            print(f'{arg}={value}')
+
+    replace(args)
 
 
 if __name__ == '__main__':

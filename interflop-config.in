@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 
-PACKAGE_STRING = "interflop-stdlib 1.0"
+package_string = "@PACKAGE_STRING@"
+package_version = "@PACKAGE_VERSION@"
 
 _args = {
     'prefix': "@prefix@",
     'libdir': "@libdir@",
-    'includedir': "@includedir@"
+    'includedir': "@includedir@",
+    'datarootdir': "@datarootdir@",
+    'm4dir': os.path.join("@datarootdir@", "interflop-stdlib")
 }
 
 
@@ -15,7 +19,7 @@ def parse_args():
     parser_desc = 'Get various information needed to compile programs which use Interflop'
     parser = argparse.ArgumentParser('interflop-config',
                                      description=parser_desc)
-    parser.add_argument('--version', action='version', version=PACKAGE_STRING)
+    parser.add_argument('--version', action='version', version=package_version)
     parser.add_argument('--prefix',
                         action='store_true',
                         help="print the installation prefix")
@@ -23,6 +27,10 @@ def parse_args():
                         help="directory containing interflop libraries")
     parser.add_argument("--includedir", action='store_true',
                         help="directory containing interflop headers")
+    parser.add_argument("--datarootdir", action='store_true',
+                        help="directory containing interflop data")
+    parser.add_argument("--m4dir", action="store_true",
+                        help="directory containing interflop M4 files")
     args = parser.parse_args()
     return args, parser
 

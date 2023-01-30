@@ -21,7 +21,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "interflop-stdlib/interflop_stdlib.h"
+#include "logger.h"
 
 #if defined(__cplusplus)
 extern "C" {

@@ -1,4 +1,5 @@
 lib_LTLIBRARIES = libinterflop_fma.la
+libdir=$(interflop_libdir)
 
 if LTO_CFLAGS
 libinterflop_fma_la_CXXFLAGS = -flto -O3 -fno-stack-protector -I../$(top_srcdir)

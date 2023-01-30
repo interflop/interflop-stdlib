@@ -1,4 +1,5 @@
 lib_LTLIBRARIES = libinterflop_hashmap.la
+libdir=$(interflop_libdir)
 
 if LTO_CFLAGS
 libinterflop_hashmap_la_CFLAGS = -flto -O3 -fno-stack-protector -I$(top_srcdir)/..

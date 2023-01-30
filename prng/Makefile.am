@@ -1,5 +1,6 @@
 lib_LTLIBRARIES = libinterflop_prng.la
- 
+libdir=$(interflop_libdir)
+
 if LTO_CFLAGS
 libinterflop_prng_la_CFLAGS = -flto -O3 -fno-stack-protector
 libinterflop_prng_la_CPPFLAGS = -flto -O3 -fno-stack-protector
