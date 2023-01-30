@@ -30,3 +30,8 @@ nobase_headers_HEADERS= \
     common/options.h \
     hashmap/vfc_hashmap.h
 dist_pkgdata_DATA = ax_interflop_stdlib.m4
+dist_bin_SCRIPTS = interflop-config
+
+interflop-config: interflop-config.in
+	automake-expand config.log interflop-config.in interflop-config && \
+	chmod +x interflop-config

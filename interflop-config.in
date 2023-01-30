@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+
+import argparse
+
+PACKAGE_STRING = "interflop-stdlib 1.0"
+
+_args = {
+    'prefix': "@prefix@",
+    'libdir': "@libdir@",
+    'includedir': "@includedir@"
+}
+
+
+def parse_args():
+    parser_desc = 'Get various information needed to compile programs which use Interflop'
+    parser = argparse.ArgumentParser('interflop-config',
+                                     description=parser_desc)
+    parser.add_argument('--version', action='version', version=PACKAGE_STRING)
+    parser.add_argument('--prefix',
+                        action='store_true',
+                        help="print the installation prefix")
+    parser.add_argument("--libdir", action='store_true',
+                        help="directory containing interflop libraries")
+    parser.add_argument("--includedir", action='store_true',
+                        help="directory containing interflop headers")
+    args = parser.parse_args()
+    return args, parser
+
+
+def main():
+    args, parser = parse_args()
+    print_arg = False
+    for name, arg in vars(args).items():
+        if arg:
+            print(_args[name])
+            print_arg = True
+
+    if not print_arg:
+        parser.print_help()
+
+
+if '__main__' == __name__:
+    main()
