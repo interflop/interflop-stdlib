@@ -42,7 +42,7 @@ void vlogger_warning(const char *fmt, va_list argp);
 /* Display the error message */
 void vlogger_error(const char *fmt, va_list argp);
 
-void logger_init(File *stream, char *backend_name);
+void logger_init(File *stream, const char *backend_name);
 
 #if defined(__cplusplus)
 }

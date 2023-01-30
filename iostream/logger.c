@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-static char *backend_header = NULL;
+static const char *backend_header = NULL;
 
 /* ANSI colors */
 typedef enum {
@@ -227,7 +227,7 @@ void vlogger_error(const char *fmt, va_list argp) {
   _interflop_verrx(EXIT_FAILURE, fmt, argp);
 }
 
-void logger_init(File *stream, char *backend_header_name) {
+void logger_init(File *stream, const char *backend_header_name) {
   backend_header = backend_header_name;
   logger_stderr = stream;
   logger_enabled = is_logger_enabled();

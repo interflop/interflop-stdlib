@@ -19,6 +19,7 @@ headers_HEADERS=interflop.h interflop_stdlib.h
 nobase_headers_HEADERS= \
     iostream/logger.h \
     rng/vfc_rng.h \
+    rng/xoroshiro128.h \
     prng/vr_rand.h \
     fma/interflop_fma.h \
     common/float_const.h \
@@ -28,3 +29,4 @@ nobase_headers_HEADERS= \
     common/quadmath-imp.h \
     common/options.h \
     hashmap/vfc_hashmap.h
+dist_pkgdata_DATA = ax_interflop_stdlib.m4
