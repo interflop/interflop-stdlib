@@ -1,4 +1,4 @@
-SUBDIRS=rng prng fma hashmap
+SUBDIRS=rng prng fma hashmap iostream
 lib_LTLIBRARIES = libinterflop_stdlib.la
 
 if LTO_CFLAGS
@@ -17,7 +17,6 @@ libinterflop_stdlib_la_SOURCES = \
 headersdir = $(includedir)/interflop-stdlib
 headers_HEADERS=interflop.h interflop_stdlib.h
 nobase_headers_HEADERS= \
-    iostream/logger.c \
     iostream/logger.h \
     rng/vfc_rng.h \
     prng/vr_rand.h \
@@ -27,7 +26,5 @@ nobase_headers_HEADERS= \
     common/float_utils.h \
     common/generic_builtin.h \
     common/quadmath-imp.h \
-    common/options.c \
     common/options.h \
-    hashmap/vfc_hashmap.h \
-    hashmap/vfc_hashmap.c
+    hashmap/vfc_hashmap.h

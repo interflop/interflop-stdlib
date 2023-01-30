@@ -72,7 +72,13 @@
 /* @param sparsity sparsity */
 /* @param rng_state pointer to the structure holding all the RNG-related data */
 /* @return false -> perturb; true -> skip */
-bool _mca_skip_eval(const float sparsity, rng_state_t *rng_state,
-                    pid_t *global_tid);
+static bool _mca_skip_eval(const float sparsity, rng_state_t *rng_state,
+                           pid_t *global_tid) {
+  if (sparsity >= 1.0f) {
+    return false;
+  }
+
+  return (get_rand_double01(rng_state, global_tid) > sparsity);
+}
 
 #endif /* __OPTIONS_H__ */

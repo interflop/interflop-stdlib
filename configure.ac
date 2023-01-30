@@ -77,5 +77,6 @@ AC_CONFIG_FILES([
  prng/Makefile
  fma/Makefile
  hashmap/Makefile
+ iostream/Makefile
 ])
 AC_OUTPUT

@@ -27,16 +27,7 @@
 extern "C" {
 #endif
 
-#define str(X) #X
-#define xstr(X) str(X)
-
-#ifndef BACKEND_HEADER
-#define BACKEND_HEADER ""
-#endif
-
-#define BACKEND_HEADER_STR xstr(BACKEND_HEADER)
-
-static const char backend_header[] = BACKEND_HEADER_STR;
+static char *backend_header = NULL;
 
 /* ANSI colors */
 typedef enum {
@@ -162,7 +153,7 @@ void set_logger_logfile() {
     logger_logfile = interflop_fopen(tmp, "a", &error);
     if (logger_logfile == Null) {
       char *msg = interflop_strerror(error);
-      _interflop_err(EXIT_FAILURE, "Error [%s]: %s", BACKEND_HEADER_STR, msg);
+      _interflop_err(EXIT_FAILURE, "Error [%s]: %s", backend_header, msg);
     }
   }
 }
@@ -172,7 +163,7 @@ static void logger_header(File *stream, const char *lvl_name,
   if (colored) {
     interflop_fprintf(stream, "%s%s%s [%s%s%s]: ", ansi_colors[lvl_color],
                       lvl_name, ansi_colors[reset_color],
-                      ansi_colors[backend_color], BACKEND_HEADER_STR,
+                      ansi_colors[backend_color], backend_header,
                       ansi_colors[reset_color]);
   } else {
     interflop_fprintf(stream, "%s [%s]: ", lvl_name, backend_header);
@@ -236,7 +227,8 @@ void vlogger_error(const char *fmt, va_list argp) {
   _interflop_verrx(EXIT_FAILURE, fmt, argp);
 }
 
-void logger_init(File *stream) {
+void logger_init(File *stream, char *backend_header_name) {
+  backend_header = backend_header_name;
   logger_stderr = stream;
   logger_enabled = is_logger_enabled();
   logger_colored = is_logger_colored();
