@@ -22,7 +22,7 @@
 
 #include <stdarg.h>
 
-#include "interflop-stdlib/interflop_stdlib.h"
+#include "interflop/interflop_stdlib.h"
 
 #if defined(__cplusplus)
 extern "C" {

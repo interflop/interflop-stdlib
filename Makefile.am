@@ -40,10 +40,10 @@ interflop-config: interflop-config.in
 	chmod +x interflop-config-${PACKAGE_VERSION}
 
 install-exec-hook: interflop-config
-	mkdir -p $(bindir) && \
+	$(MKDIR_P) $(bindir) && \
 	ln -sf $(interflop_bindir)/interflop-config-${PACKAGE_VERSION} $(bindir)/interflop-config-${PACKAGE_VERSION} && \
 	ln -sf $(interflop_bindir)/interflop-config-${PACKAGE_VERSION} $(bindir)/interflop-config
 
 install-data-hook:
-	mkdir -p $(includedir) && \
+	$(MKDIR_P) $(includedir) && \
 	ln -sTf $(interflop_includedir)/interflop $(includedir)/interflop

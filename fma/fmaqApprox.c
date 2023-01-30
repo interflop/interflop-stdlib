@@ -29,7 +29,7 @@ change name : fmaq -> fmaqApprox as we do necessary have access to fenv
 
 #include "fmaqApprox.h"
 #undef HAVE_FENV_H
-#include "interflop-stdlib/common/quadmath-imp.h"
+#include "interflop/common/quadmath-imp.h"
 
 /* This implementation uses rounding to odd to avoid problems with
    double rounding.  See a paper by Boldo and Melquiond:
