@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import os
 
 package_string = "@PACKAGE_STRING@"
 package_version = "@PACKAGE_VERSION@"
@@ -10,8 +9,8 @@ _args = {
     'prefix': "@interflop_prefix@",
     'libdir': "@interflop_libdir@",
     'includedir': "@interflop_includedir@",
-    'datarootdir': "@datarootdir@",
-    'm4dir': os.path.join("@datarootdir@", "interflop-stdlib")
+    'datarootdir': "@interflop_datarootdir@",
+    'm4dir': "@interflop_datarootdir@"
 }
 
 

@@ -23,7 +23,7 @@ fi
 AC_SUBST(interflop_includedir, $interflop_prefix/include)
 AC_SUBST(interflop_bindir, $interflop_prefix/bin)
 AC_SUBST(interflop_libdir, $interflop_prefix/lib)
-
+AC_SUBST(interflop_datarootdir, $interflop_prefix/share)
 
 # --enable-wall
 AC_ARG_ENABLE(wall, AS_HELP_STRING([--enable-wall],[Enable -Wall compilation flag]), [WALL_CFLAGS="yes"])

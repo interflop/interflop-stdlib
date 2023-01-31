@@ -32,12 +32,14 @@ nobase_headers_HEADERS= \
 	common/quadmath-imp.h \
 	common/options.h \
 	hashmap/vfc_hashmap.h
-dist_pkgdata_DATA = ax_interflop_stdlib.m4
+
+m4dir = $(interflop_datarootdir)
+m4_DATA = ax_interflop_stdlib.m4 ax_warnings.m4 ax_lto.m4
 
 interflop_configdir = $(interflop_bindir)
 interflop_config_SCRIPTS = interflop-config-${PACKAGE_VERSION}
 
-interflop-config: interflop-config.in
+interflop-config-${PACKAGE_VERSION}: interflop-config.in
 	./automake-expand --config-log config.log --input interflop-config.in --output interflop-config-${PACKAGE_VERSION} && \
 	chmod +x interflop-config-${PACKAGE_VERSION}
 
@@ -48,4 +50,5 @@ install-exec-hook: interflop-config
 
 install-data-hook:
 	$(MKDIR_P) $(includedir) && \
-	ln -sTf $(interflop_includedir)/interflop $(includedir)/interflop
+	ln -sTf $(interflop_includedir)/interflop $(includedir)/interflop && \
+	ln -sTf $(interflop_datarootdir) $(datarootdir)/interflop
