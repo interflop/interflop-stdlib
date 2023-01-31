@@ -1,5 +1,3 @@
-
-
 # SYNOPSIS
 #
 #   AX_INTERFLOP_STDLIB()

@@ -1,8 +1,6 @@
-
-
 # SYNOPSIS
 #
-#   AX_WARNINGS
+#   AX_LTO
 #
 # DESCRIPTION
 #
