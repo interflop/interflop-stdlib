@@ -22,6 +22,8 @@ nobase_headers_HEADERS= \
 	rng/vfc_rng.h \
 	rng/xoroshiro128.h \
 	prng/vr_rand.h \
+	prng/tinymt64.h \
+	prng/xoshiro.hxx \
 	fma/interflop_fma.h \
 	common/float_const.h \
 	common/float_struct.h \

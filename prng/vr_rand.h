@@ -34,8 +34,8 @@
 
 #include <cstdint>
 
-#include "tinymt64.h"
-#include "xoshiro.hxx"
+#include "interflop/prng/tinymt64.h"
+#include "interflop/prng/xoshiro.hxx"
 
 typedef struct Vr_Rand_ Vr_Rand;
 struct Vr_Rand_ {
@@ -50,8 +50,13 @@ struct Vr_Rand_ {
   uint32_t count_;
 };
 
-// extern Vr_Rand vr_rand;
+/* Disable thread safety for RNG required for Valgrind */
+#ifdef RNG_THREAD_SAFE
+#define TLS __thread
+#else
+#define TLS
+#endif
 
-Vr_Rand vr_rand;
+extern TLS Vr_Rand vr_rand;
 
 #endif

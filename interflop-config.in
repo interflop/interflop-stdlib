@@ -7,9 +7,9 @@ package_string = "@PACKAGE_STRING@"
 package_version = "@PACKAGE_VERSION@"
 
 _args = {
-    'prefix': "@prefix@",
-    'libdir': "@libdir@",
-    'includedir': "@includedir@",
+    'prefix': "@interflop_prefix@",
+    'libdir': "@interflop_libdir@",
+    'includedir': "@interflop_includedir@",
     'datarootdir': "@datarootdir@",
     'm4dir': os.path.join("@datarootdir@", "interflop-stdlib")
 }
