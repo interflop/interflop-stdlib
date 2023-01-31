@@ -1,17 +1,28 @@
 lib_LTLIBRARIES = libinterflop_prng.la
 libdir=$(interflop_libdir)
 
-if LTO_CFLAGS
-libinterflop_prng_la_CFLAGS = -flto -O3 -fno-stack-protector
-libinterflop_prng_la_CPPFLAGS = -flto -O3 -fno-stack-protector
-libinterflop_prng_la_LDFLAGS = -flto -O3
+if ENABLE_LTO
+LTO_FLAGS = -flto
 else
-libinterflop_prng_la_CFLAGS = -O3 -fno-stack-protector
-libinterflop_prng_la_CPPFLAGS = -O3 -fno-stack-protector
+LTO_FLAGS =
 endif
-if WALL_CFLAGS
-libinterflop_prng_la_CFLAGS += -Wall -Wextra -g
+
+if ENABLE_WARNINGS
+WARNING_FLAGS = -Wall -Wextra -Wno-varargs
+else
+WARNING_FLAGS = 
 endif
+
 libinterflop_prng_la_SOURCES = \
     xoshiro.cxx \
     tinymt64.c 
+
+libinterflop_prng_la_CFLAGS = \
+    $(LTO_FLAGS) -O3 \
+    -fno-stack-protector
+libinterflop_prng_la_CPPFLAGS = \
+    $(LTO_FLAGS) -O3 \
+    -fno-stack-protector
+libinterflop_prng_la_LDFLAGS = \
+    $(LTO_FLAGS) -O3
+

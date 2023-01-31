@@ -2,18 +2,29 @@ SUBDIRS=rng prng fma hashmap iostream
 lib_LTLIBRARIES = libinterflop_stdlib.la
 libdir=$(interflop_libdir)
 
-if LTO_CFLAGS
-libinterflop_stdlib_la_CFLAGS = -flto -O3 -fno-stack-protector
-libinterflop_stdlib_la_LDFLAGS = -flto -O3
+if ENABLE_LTO
+LTO_FLAGS = -flto
 else
-libinterflop_stdlib_la_CFLAGS = -O3 -fno-stack-protector
+LTO_FLAGS =
 endif
-if WALL_CFLAGS
-libinterflop_stdlib_la_CFLAGS += -Wall -Wextra -g
+
+if ENABLE_WARNINGS
+WARNING_FLAGS = -Wall -Wextra -Wno-varargs
+else
+WARNING_FLAGS = 
 endif
+
 libinterflop_stdlib_la_SOURCES = \
 	interflop_stdlib.h \
 	interflop_stdlib.c
+
+libinterflop_stdlib_la_CFLAGS = \
+	$(LTO_FLAGS) -O3 \
+	-fno-stack-protector \
+	$(WARNING_FLAGS)
+libinterflop_stdlib_la_LDFLAGS = \
+	$(LTO_FLAGS) -O3
+
 
 headersdir=$(interflop_includedir)/interflop
 headers_HEADERS=interflop.h interflop_stdlib.h
@@ -34,7 +45,7 @@ nobase_headers_HEADERS= \
 	hashmap/vfc_hashmap.h
 
 m4dir = $(interflop_datarootdir)
-m4_DATA = ax_interflop_stdlib.m4 ax_warnings.m4 ax_lto.m4
+m4_DATA = m4/ax_interflop_stdlib.m4 m4/ax_warnings.m4 m4/ax_lto.m4
 
 interflop_configdir = $(interflop_bindir)
 interflop_config_SCRIPTS = interflop-config-${PACKAGE_VERSION}

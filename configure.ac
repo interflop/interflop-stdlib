@@ -25,21 +25,8 @@ AC_SUBST(interflop_bindir, $interflop_prefix/bin)
 AC_SUBST(interflop_libdir, $interflop_prefix/lib)
 AC_SUBST(interflop_datarootdir, $interflop_prefix/share)
 
-# --enable-wall
-AC_ARG_ENABLE(wall, AS_HELP_STRING([--enable-wall],[Enable -Wall compilation flag]), [WALL_CFLAGS="yes"])
-AM_CONDITIONAL([WALL_CFLAGS], [test "x$WALL_CFLAGS" = "xyes"])
-if test "x$WALL_CFLAGS" = "xyes"; then
-   AC_DEFINE([WALL_CFLAGS], [],  ["Enable -Wall compilation flag"])
-   AC_MSG_NOTICE([-Wall is set])
-fi
-
-# --enable-lto
-AC_ARG_ENABLE(lto, AS_HELP_STRING([--enable-lto],[Enable Link Time Optimizer]), [LTO_CFLAGS="yes"])
-AM_CONDITIONAL([LTO_CFLAGS], [test "x$LTO_CFLAGS" = "xyes"])
-if test "x$LTO_CFLAGS" = "xyes"; then
-   AC_DEFINE([LTO_CFLAGS], [],  ["Enable Link Time Optimizer"])
-   AC_MSG_NOTICE([Link Time Optimizer is set])
-fi
+AX_WARNINGS()
+AX_LTO()
 
 # --enable-intrinsic-fma
 # Taken from configure.ac Verrou
