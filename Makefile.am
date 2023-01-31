@@ -45,7 +45,7 @@ nobase_headers_HEADERS= \
 	hashmap/vfc_hashmap.h
 
 m4dir = $(interflop_datarootdir)
-m4_DATA = m4/ax_interflop_stdlib.m4 m4/ax_warnings.m4 m4/ax_lto.m4
+m4_DATA = m4/ax_interflop_stdlib.m4 m4/ax_warnings.m4 m4/ax_lto.m4 m4/ax_intrinsic_fma.m4
 
 interflop_configdir = $(interflop_bindir)
 interflop_config_SCRIPTS = interflop-config-${PACKAGE_VERSION}
