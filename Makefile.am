@@ -25,7 +25,6 @@ libinterflop_stdlib_la_CFLAGS = \
 libinterflop_stdlib_la_LDFLAGS = \
 	$(LTO_FLAGS) -O3
 
-
 headersdir=$(interflop_includedir)/interflop
 headers_HEADERS=interflop.h interflop_stdlib.h
 nobase_headers_HEADERS= \

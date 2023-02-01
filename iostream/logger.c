@@ -227,9 +227,26 @@ void vlogger_error(const char *fmt, va_list argp) {
   _interflop_verrx(EXIT_FAILURE, fmt, argp);
 }
 
-void logger_init(File *stream, const char *backend_header_name) {
+static void _logger_check_stdlib(void) {
+  INTERFLOP_CHECK_IMPL(exit);
+  INTERFLOP_CHECK_IMPL(fopen);
+  INTERFLOP_CHECK_IMPL(fprintf);
+  INTERFLOP_CHECK_IMPL(getenv);
+  INTERFLOP_CHECK_IMPL(gettid);
+  INTERFLOP_CHECK_IMPL(sprintf);
+  INTERFLOP_CHECK_IMPL(strcasecmp);
+  INTERFLOP_CHECK_IMPL(strerror);
+  INTERFLOP_CHECK_IMPL(vfprintf);
+  INTERFLOP_CHECK_IMPL(vwarnx);
+}
+
+void logger_init(interflop_panic_t panic, File *stream,
+                 const char *backend_header_name) {
   backend_header = backend_header_name;
   logger_stderr = stream;
+  interflop_set_handler("panic", (void *)panic);
+  _logger_check_stdlib();
+
   logger_enabled = is_logger_enabled();
   logger_colored = is_logger_colored();
   set_logger_logfile();

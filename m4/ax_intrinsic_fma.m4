@@ -13,7 +13,7 @@ AC_DEFUN([AX_INTRINSIC_FMA],
 # Taken from configure.ac Verrou
 AC_CACHE_CHECK([intrinsic fma], interflop_cv_intrinsic_fma,
   [AC_ARG_ENABLE(intrinsic-fma,
-    AS_HELP_STRING([--enable-intrinsic-fma],[enables interflop-stdlib to use intrinsic fma]),
+    AS_HELP_STRING([--enable-intrinsic-fma], [enables interflop-stdlib to use intrinsic fma]),
     [interflop_cv_intrinsic_fma=$enableval],
     [interflop_cv_intrinsic_fma=yes])])
 

@@ -45,6 +45,11 @@ typedef void Itimezone_t;
 
 #define EXIT_FAILURE 1
 
+#define INTERFLOP_CHECK_IMPL(name)                                             \
+  if (interflop_##name == Null) {                                              \
+    interflop_panic("Interflop backend error: " #name " not implemented\n");   \
+  }
+
 typedef void (*interflop_set_handler_t)(const char *name, void *function_ptr);
 
 void interflop_set_handler(const char *name, void *function_ptr);
