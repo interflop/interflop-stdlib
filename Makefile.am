@@ -58,7 +58,7 @@ interflop-config-${PACKAGE_VERSION}: interflop-config.in
 	./automake-expand --config-log config.log --input interflop-config.in --output interflop-config-${PACKAGE_VERSION} && \
 	chmod +x interflop-config-${PACKAGE_VERSION}
 
-install-exec-hook: interflop-config
+install-exec-hook: interflop-config-${PACKAGE_VERSION}
 	$(MKDIR_P) $(bindir) && \
 	ln -sf $(interflop_bindir)/interflop-config-${PACKAGE_VERSION} $(bindir)/interflop-config-${PACKAGE_VERSION} && \
 	ln -sf $(interflop_bindir)/interflop-config-${PACKAGE_VERSION} $(bindir)/interflop-config
