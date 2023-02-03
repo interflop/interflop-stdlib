@@ -12,7 +12,7 @@
  ****************************************************************************/
 
 #include "vfc_rng.h"
-#include "interflop/interflop_stdlib.h"
+#include "interflop_stdlib.h"
 #include "splitmix64.h"
 #include "xoroshiro128.h"
 

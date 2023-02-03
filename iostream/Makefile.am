@@ -19,6 +19,7 @@ libinterflop_logger_la_SOURCES = \
 libinterflop_logger_la_CFLAGS = \
     $(LTO_FLAGS) -O3 \
     -fno-stack-protector \
+    -D__INTERFLOP_BOOTSTRAP__ \
     -I$(top_srcdir)/.. \
     $(WARNING_FLAGS)
 libinterflop_logger_la_LDFLAGS = \

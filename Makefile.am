@@ -1,3 +1,4 @@
+ACLOCAL_AMFLAGS= -I m4
 SUBDIRS=rng prng fma hashmap iostream
 lib_LTLIBRARIES = libinterflop_stdlib.la
 libdir=$(interflop_libdir)

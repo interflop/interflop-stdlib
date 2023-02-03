@@ -15,7 +15,7 @@
  *   limitations under the License.
  */
 
-#include "interflop/interflop_stdlib.h"
+#include "interflop_stdlib.h"
 
 // #include <stdlib.h>
 

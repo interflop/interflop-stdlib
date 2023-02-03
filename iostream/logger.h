@@ -22,7 +22,13 @@
 
 #include <stdarg.h>
 
+#ifdef __INTERFLOP_BOOTSTRAP__
+/* Must be included without the path
+ * since interflop-stdlib is not installed yet */
+#include "interflop_stdlib.h"
+#else
 #include "interflop/interflop_stdlib.h"
+#endif
 
 #if defined(__cplusplus)
 extern "C" {
