@@ -7,6 +7,7 @@ package_version = "@PACKAGE_VERSION@"
 
 _args = {
     'prefix': "@interflop_prefix@",
+    'bindir': "@interflop_bindir@",
     'libdir': "@interflop_libdir@",
     'includedir': "@interflop_includedir@",
     'datarootdir': "@interflop_datarootdir@",
@@ -22,6 +23,8 @@ def parse_args():
     parser.add_argument('--prefix',
                         action='store_true',
                         help="print the installation prefix")
+    parser.add_argument("--bindir", action='store_true',
+                        help="directory containing interflop binaries")
     parser.add_argument("--libdir", action='store_true',
                         help="directory containing interflop libraries")
     parser.add_argument("--includedir", action='store_true',
