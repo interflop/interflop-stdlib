@@ -35,6 +35,7 @@ nobase_headers_HEADERS= \
 	prng/tinymt64.h \
 	prng/xoshiro.hxx \
 	fma/interflop_fma.h \
+	fma/vr_fma.hxx \
 	common/float_const.h \
 	common/float_struct.h \
 	common/float_utils.h \
