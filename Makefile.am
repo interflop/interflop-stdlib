@@ -1,7 +1,6 @@
 ACLOCAL_AMFLAGS= -I m4
 SUBDIRS=rng prng fma hashmap iostream
 lib_LTLIBRARIES = libinterflop_stdlib.la
-libdir=$(interflop_libdir)
 
 if ENABLE_LTO
 LTO_FLAGS = -flto
@@ -26,7 +25,7 @@ libinterflop_stdlib_la_CFLAGS = \
 libinterflop_stdlib_la_LDFLAGS = \
 	$(LTO_FLAGS) -O3
 
-headersdir=$(interflop_includedir)/interflop
+headersdir=$(includedir)/interflop
 headers_HEADERS=interflop.h interflop_stdlib.h
 nobase_headers_HEADERS= \
 	iostream/logger.h \
@@ -44,7 +43,7 @@ nobase_headers_HEADERS= \
 	common/options.h \
 	hashmap/vfc_hashmap.h
 
-m4dir = $(interflop_datarootdir)
+m4dir = $(datarootdir)/interflop
 m4_DATA = \
 	m4/ax_interflop_stdlib.m4 \
 	m4/ax_warnings.m4 \
@@ -52,19 +51,8 @@ m4_DATA = \
 	m4/ax_intrinsic_fma.m4 \
 	m4/ax_interflop_rng.m4
 
-interflop_configdir = $(interflop_bindir)
-interflop_config_SCRIPTS = interflop-config-${PACKAGE_VERSION}
+dist_bin_SCRIPTS = interflop-config
 
-interflop-config-${PACKAGE_VERSION}: interflop-config.in
-	./automake-expand --config-log config.log --input interflop-config.in --output interflop-config-${PACKAGE_VERSION} && \
-	chmod +x interflop-config-${PACKAGE_VERSION}
-
-install-exec-hook: interflop-config-${PACKAGE_VERSION}
-	$(MKDIR_P) $(bindir) && \
-	ln -sf $(interflop_bindir)/interflop-config-${PACKAGE_VERSION} $(bindir)/interflop-config-${PACKAGE_VERSION} && \
-	ln -sf $(interflop_bindir)/interflop-config-${PACKAGE_VERSION} $(bindir)/interflop-config
-
-install-data-hook:
-	$(MKDIR_P) $(includedir) && \
-	ln -sTf $(interflop_includedir)/interflop $(includedir)/interflop && \
-	ln -sTf $(interflop_datarootdir) $(datarootdir)/interflop
+interflop-config: interflop-config.in
+	./automake-expand --config-log config.log --input interflop-config.in --output interflop-config && \
+	chmod +x interflop-config

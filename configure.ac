@@ -14,17 +14,6 @@ AC_PROG_MAKE_SET
 
 AC_SUBST(INTERFLOP_DIRNAME, interflop-${PACKAGE_VERSION})
 
-if test "x$prefix" != "xNONE"; then
-  AC_SUBST(interflop_prefix, ${prefix}/lib/${INTERFLOP_DIRNAME})
-else
-  AC_SUBST(interflop_prefix, ${ac_default_prefix}/lib/${INTERFLOP_DIRNAME})
-fi
-
-AC_SUBST(interflop_includedir, $interflop_prefix/include)
-AC_SUBST(interflop_bindir, $interflop_prefix/bin)
-AC_SUBST(interflop_libdir, $interflop_prefix/lib)
-AC_SUBST(interflop_datarootdir, $interflop_prefix/share)
-
 AX_WARNINGS()
 AX_LTO()
 AX_INTRINSIC_FMA()

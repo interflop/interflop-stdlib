@@ -1,5 +1,4 @@
 lib_LTLIBRARIES = libinterflop_rng.la
-libdir=$(interflop_libdir)
 
 if ENABLE_LTO
 LTO_FLAGS = -flto
