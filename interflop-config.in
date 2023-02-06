@@ -6,12 +6,12 @@ package_string = "@PACKAGE_STRING@"
 package_version = "@PACKAGE_VERSION@"
 
 _args = {
-    'prefix': "@interflop_prefix@",
-    'bindir': "@interflop_bindir@",
-    'libdir': "@interflop_libdir@",
-    'includedir': "@interflop_includedir@",
-    'datarootdir': "@interflop_datarootdir@",
-    'm4dir': "@interflop_datarootdir@"
+    'prefix': "@prefix@",
+    'bindir': "@bindir@",
+    'libdir': "@libdir@",
+    'includedir': "@includedir@",
+    'datarootdir': "@datarootdir@/interflop",
+    'm4dir': "@datarootdir@/interflop"
 }
 
 
