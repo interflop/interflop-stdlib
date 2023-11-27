@@ -12,8 +12,6 @@
 #error "No way!"
 #endif
 
-#define __float128 long double
-
 /* Main union type we use to manipulate the floating-point type.  */
 
 typedef union {
