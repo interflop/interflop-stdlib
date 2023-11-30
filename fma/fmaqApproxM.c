@@ -1,5 +1,5 @@
 #include <math.h>
-#include "fmaqApprox.h"
+#include "fmaqApproxM.h"
 
 __float128 fmaqApprox(__float128 x, __float128 y, __float128 z) {
   return fmal(x, y, z);
