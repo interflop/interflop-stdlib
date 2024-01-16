@@ -36,7 +36,7 @@ target_compile_definitions(interflop_stdlib_cxx PRIVATE  ${CRT_COMPILE_DEFINITIO
 target_compile_options (interflop_stdlib_cxx PRIVATE ${CRT_PREPROCESS_OPTIONS} ${CRT_COMPILE_OPTIONS} ${CRT_CXX_COMPILE_OPTIONS})
 
 
-
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIRECTORY})
 add_library (interflop_stdlib SHARED $<TARGET_OBJECTS:interflop_stdlib_c>  $<TARGET_OBJECTS:interflop_stdlib_cxx>)
 target_link_options (interflop_stdlib PRIVATE ${CRT_LINK_OPTIONS})
 target_link_libraries (interflop_stdlib ${CRT_LINK_LIBRARIES})
