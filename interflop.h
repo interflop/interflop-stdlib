@@ -8,6 +8,7 @@ extern "C" {
 #endif
 
 #include "interflop/interflop_stdlib.h"
+#include "interflop/interflop_vinterface.h"
 
 /* interflop backend interface */
 
@@ -115,6 +116,9 @@ struct interflop_backend_interface_t {
   /* interflop_finalize: called at the end of the instrumented program
    * execution */
   void (*interflop_finalize)(void *context);
+
+  int enabled_vbackend;
+  struct interflop_backend_vector_interface_t vbackend;
 };
 
 /**

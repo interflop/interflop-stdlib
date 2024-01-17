@@ -1,5 +1,9 @@
 #include "interflop_fma.h"
+#ifdef PIN_CRT
+#include "fmaqApproxM.h"
+#else
 #include "fmaqApprox.h"
+#endif
 
 #if HAVE_FMA_INTRINSIC
 #include "vr_fma.hxx"
